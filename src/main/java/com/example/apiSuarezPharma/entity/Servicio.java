@@ -13,6 +13,8 @@ public class Servicio {
     private String tittle;
     private String doc;
     private String description;
+    private String department;
+    private String city;
     @ManyToOne
     @JoinColumn(name = "id_category")
     private Category idCategory;
@@ -55,5 +57,21 @@ public class Servicio {
 
     public void setIdCategory(Category idCategory) {
         this.idCategory = idCategory;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 }

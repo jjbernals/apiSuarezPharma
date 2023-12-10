@@ -31,4 +31,39 @@ public class ServicioServiceImpl implements ServicioService{
     public List<Servicio> getAllServicios() {
         return servicioRepository.findAll();
     }
+
+    @Override
+    public List<Servicio> getServicesByTittle(String search) {
+        return servicioRepository.getServiceByTittle(search);
+    }
+
+    @Override
+    public void deleteAService(Long id) {
+        servicioRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Servicio> getServicesByDepartment(String search) {
+        return servicioRepository.getServiceByDepartment(search);
+    }
+
+    @Override
+    public List<Servicio> getServicesByCategory(String search) {
+        return servicioRepository.getServiceByCategory(search);
+    }
+
+    @Override
+    public List<Servicio> getServicesByCity(String search) {
+        return servicioRepository.getServiceByCity(search);
+    }
+
+    @Override
+    public List<Servicio> getServicesByDepartmentAndCategory(String search, String category) {
+        return servicioRepository.getServiceByDepartmentAndCategory(search, category);
+    }
+
+    @Override
+    public List<Servicio> getServicesByCityAndCategory(String search, String category) {
+        return servicioRepository.getServiceByCityAndCategory(search,category);
+    }
 }
