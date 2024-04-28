@@ -3,11 +3,12 @@ package com.example.apiSuarezPharma.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
 
 @Entity
 @Data
-@Table(name = "admin")
-public class    Admin {
+@Table(name = "doctor")
+public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -16,6 +17,17 @@ public class    Admin {
     private String phone;
     private String password;
     private String rol;
+    @OneToMany
+    @JoinColumn(name = "id_servicio")
+    private List<Servicio> idServicio;
+
+    public List<Servicio> getIdServicio() {
+        return idServicio;
+    }
+
+    public void setIdServicio(List<Servicio> idServicio) {
+        this.idServicio = idServicio;
+    }
 
     public String getRol() {
         return rol;

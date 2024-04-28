@@ -49,7 +49,7 @@ public class AdminServiceImpl implements AdminService{
 
     @Override
     public void updateAdmin(Long id, Admin admin) {
-        Admin adminResult = adminRepository.findById(id).orElseThrow(()->new UserNotFoundException("No se encuentra disponible este vehiculo"));
+        Admin adminResult = adminRepository.findById(id).orElseThrow(()->new UserNotFoundException("No se encuentra disponible este usuario"));
         admin.setId(id);
         adminRepository.save(admin);
     }

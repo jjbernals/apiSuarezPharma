@@ -11,7 +11,6 @@ public class Servicio {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String tittle;
-    private String doc;
     private String description;
     private String department;
     private String city;
@@ -33,14 +32,6 @@ public class Servicio {
 
     public void setTittle(String tittle) {
         this.tittle = tittle;
-    }
-
-    public String getDoc() {
-        return doc;
-    }
-
-    public void setDoc(String doc) {
-        this.doc = doc;
     }
 
     public String getDescription() {
