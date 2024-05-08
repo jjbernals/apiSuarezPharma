@@ -17,16 +17,16 @@ public class Doctor {
     private String phone;
     private String password;
     private String rol;
-    @OneToMany
-    @JoinColumn(name = "id_servicio")
-    private List<Servicio> idServicio;
+    @OneToOne
+    @JoinColumn(name = "id_category")
+    private Category idCategory;
 
-    public List<Servicio> getIdServicio() {
-        return idServicio;
+    public Category getIdCategory() {
+        return idCategory;
     }
 
-    public void setIdServicio(List<Servicio> idServicio) {
-        this.idServicio = idServicio;
+    public void setIdCategory(Category idCategory) {
+        this.idCategory = idCategory;
     }
 
     public String getRol() {

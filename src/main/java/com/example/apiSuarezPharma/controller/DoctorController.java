@@ -23,9 +23,9 @@ public class DoctorController {
     @GetMapping("/{email}/{password}")
     public Doctor loginDoctor(@PathVariable String email, @PathVariable String password) throws AuthenticationException { return doctorService.loginDoctor(email, password); }
 
-    @PostMapping
+    @PostMapping("/{id}")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createDoctor (@RequestBody Doctor doctor) { doctorService.createDoctor(doctor); }
+    public void createDoctor (@RequestBody Doctor doctor, @PathVariable Long id) { doctorService.createDoctor(doctor, id); }
 
     @PatchMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)

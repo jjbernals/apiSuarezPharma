@@ -1,7 +1,10 @@
 package com.example.apiSuarezPharma.service;
 
+import com.example.apiSuarezPharma.entity.Category;
 import com.example.apiSuarezPharma.entity.Doctor;
+import com.example.apiSuarezPharma.exception.CategoryNotFoundException;
 import com.example.apiSuarezPharma.exception.DoctorNotFoundException;
+import com.example.apiSuarezPharma.repository.CategoryRepository;
 import com.example.apiSuarezPharma.repository.DoctorRepository;
 import org.springframework.stereotype.Service;
 
@@ -11,13 +14,18 @@ import java.util.List;
 @Service
 public class DoctorServiceImpl implements DoctorService{
     private final DoctorRepository doctorRepository;
+    private final CategoryRepository categoryRepository;
 
-    public DoctorServiceImpl(DoctorRepository doctorRepository) {
+    public DoctorServiceImpl(DoctorRepository doctorRepository, CategoryRepository categoryRepository) {
         this.doctorRepository = doctorRepository;
+        this.categoryRepository = categoryRepository;
     }
 
     @Override
-    public void createDoctor(Doctor doctor) {
+    public void createDoctor(Doctor doctor, Long id) {
+        Category category = categoryRepository.findById(id)
+                .orElseThrow(()-> new CategoryNotFoundException("La categoria seleccionada no existe"));
+        doctor.setIdCategory(category);
         doctor.setRol("doctor");
         doctorRepository.save(doctor);
     }

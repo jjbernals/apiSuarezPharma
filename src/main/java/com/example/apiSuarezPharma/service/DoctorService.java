@@ -6,7 +6,7 @@ import javax.security.sasl.AuthenticationException;
 import java.util.List;
 
 public interface DoctorService {
-    void createDoctor(Doctor doctor);
+    void createDoctor(Doctor doctor, Long id);
     void deleteDoctor(Long id);
     List<Doctor> getAllDoctors();
     void updateDoctor(Doctor doctor, Long id);
