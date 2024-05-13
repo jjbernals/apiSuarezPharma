@@ -41,6 +41,11 @@ public class DoctorServiceImpl implements DoctorService{
     }
 
     @Override
+    public List<Doctor> getDoctorsByCategory(Long id) {
+        return doctorRepository.getDoctorsByCategory(id);
+    }
+
+    @Override
     public void updateDoctor(Doctor doctor, Long id) {
         Doctor doctorResponse = doctorRepository.findById(id).orElseThrow(()->new DoctorNotFoundException("El doctor no se encuentra registrado"));
         doctor.setId(id);

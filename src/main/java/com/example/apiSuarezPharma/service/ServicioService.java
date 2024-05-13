@@ -14,5 +14,8 @@ public interface ServicioService {
     List<Servicio> getServicesByCity (String search);
     List<Servicio> getServicesByDepartmentAndCategory (String search, String category);
     List<Servicio> getServicesByCityAndCategory (String search, String category);
+    List<Servicio> getServicesByDepartmentAndTittle(String search, String tittle);
+    List<Servicio> getServicesByCityAndTittle(String search, String tittle);
+    List<Servicio> getServicesByIdCategory(Long id);
 
 }

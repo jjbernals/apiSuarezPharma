@@ -18,6 +18,9 @@ public class ServicioController {
     @GetMapping
     public List<Servicio> getAllServicio () { return servicioService.getAllServicios(); }
 
+    @GetMapping("/{id}")
+    public List<Servicio> getServicesByIdCategory (@PathVariable Long id) { return servicioService.getServicesByIdCategory(id); }
+
     @GetMapping("/tittle/{search}")
     public List<Servicio> getServicesByTittle (@PathVariable String search) { return servicioService.getServicesByTittle(search); }
 
@@ -29,6 +32,12 @@ public class ServicioController {
 
     @GetMapping("/department/{search}/{category}")
     public List<Servicio> getServicesByDepartmentAndCategory (@PathVariable String search, @PathVariable String category) { return servicioService.getServicesByDepartmentAndCategory(search, category); }
+
+    @GetMapping("/department-tittle/{search}/{tittle}")
+    public List<Servicio> getServicesByDepartmentAndTittle (@PathVariable String search, @PathVariable String tittle) { return servicioService.getServicesByDepartmentAndTittle(search, tittle); }
+
+    @GetMapping("/city-tittle/{search}/{tittle}")
+    public List<Servicio> getServicesByCityAndTittle (@PathVariable String search, @PathVariable String tittle) { return servicioService.getServicesByCityAndTittle(search, tittle); }
 
     @GetMapping("/city/{search}")
     public List<Servicio> getServicesByCity (@PathVariable String search) { return servicioService.getServicesByCity(search); }

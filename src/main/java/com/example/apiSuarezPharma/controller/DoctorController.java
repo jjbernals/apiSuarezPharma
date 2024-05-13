@@ -5,6 +5,7 @@ import com.example.apiSuarezPharma.service.DoctorServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.print.Doc;
 import javax.security.sasl.AuthenticationException;
 import java.util.List;
 
@@ -22,6 +23,9 @@ public class DoctorController {
 
     @GetMapping("/{email}/{password}")
     public Doctor loginDoctor(@PathVariable String email, @PathVariable String password) throws AuthenticationException { return doctorService.loginDoctor(email, password); }
+
+    @GetMapping("/{id}")
+    public List<Doctor> getDoctorsByCategory(@PathVariable Long id) { return doctorService.getDoctorsByCategory(id); }
 
     @PostMapping("/{id}")
     @ResponseStatus(HttpStatus.CREATED)
